@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScrollBarBug.MainPage">
+
+    <CollectionView x:Name="daysView" ItemsSource="{Binding MyItemList}" ItemSizingStrategy="MeasureFirstItem">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="4" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate >
+                    <DataTemplate>
+                        <Border Stroke="Black"
+                                BackgroundColor="White">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="4"/>
+                            </Border.StrokeShape>
+                            <Border.Shadow>
+                                <Shadow Radius="2" Brush="Black" Opacity="0.4" Offset="2,2"/>
+                            </Border.Shadow>
+
+                            <StackLayout Orientation="Horizontal"  Padding="8" Spacing="4" HorizontalOptions="Center" >
+                                <Label Text="{Binding .}"/>
+                            </StackLayout>
+                        </Border>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+</ContentPage>
